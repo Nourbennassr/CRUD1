@@ -1,0 +1,17 @@
+# Utilisez l'image de base Python appropriée pour votre application Flask
+FROM python:3.9
+
+# Définissez le répertoire de travail dans le conteneur
+WORKDIR /app
+
+# Copiez les fichiers de votre projet Flask dans le conteneur
+COPY . /app
+# Installez les dépendances du projet
+RUN pip install -r requirements.txt
+
+
+# Exposez le port sur lequel votre application Flask s'exécute
+EXPOSE 5000
+
+# Démarrez votre application Flask lorsque le conteneur est lancé
+CMD ["python", "app.py"]
