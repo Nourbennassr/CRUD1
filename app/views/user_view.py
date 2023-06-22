@@ -9,7 +9,9 @@ def get_users():
     for user in users:
         result.append({
             'username': user['username'],
-            'email': user['email']
+            'email': user['email'],
+             '_id': str(user['_id'])
+            
         })
     return jsonify(result)
 

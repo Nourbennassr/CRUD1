@@ -1,3 +1,4 @@
+from bson import ObjectId
 from app import mongo
 
 class User:
@@ -17,14 +18,16 @@ class User:
 
     @staticmethod
     def get_by_id(user_id):
-        return mongo.db.users.find_one({'_id': user_id})
+        user = mongo.db.users.find_one({'_id': ObjectId(user_id)})
+        return user
 
     def update(self, user_id):
-        mongo.db.users.update_one({'_id': user_id}, {'$set': {
+        mongo.db.users.update_one({'_id':ObjectId(user_id)}, {'$set': {
             'username': self.username,
             'email': self.email
         }})
 
     @staticmethod
     def delete(user_id):
-        mongo.db.users.delete_one({'_id': user_id})
+     mongo.db.users.delete_one({'_id': ObjectId(user_id)})
+   
