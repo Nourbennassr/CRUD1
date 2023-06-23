@@ -1,0 +1,3 @@
+[submodule "CRUD1"]
+	path = CRUD1
+	url = https://github.com/Nourbennassr/CRUD.git
